@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- '@' means reference context path  -->
+    <link rel="stylesheet" th:href="@{/css/demo.css}" />
+    <title>Thymeleaf Demo</title>
+  </head>
+  <body>
+    <form th:action="@{/process-form-v3}" method="post">
+      <input
+        type="text"
+        name="studentName"
+        id="studentName"
+        placeholder="What's your name?"
+      />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

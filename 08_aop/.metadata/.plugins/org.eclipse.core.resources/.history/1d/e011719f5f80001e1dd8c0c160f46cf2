@@ -1,0 +1,8 @@
+package com.example.aop.dao;
+
+import org.aspectj.lang.annotation.Before;
+
+public class APIAnalyticsDAOImpl implements APIAnalyticsDAO {
+
+	
+}

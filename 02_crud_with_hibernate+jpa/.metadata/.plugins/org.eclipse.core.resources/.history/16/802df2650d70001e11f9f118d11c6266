@@ -1,0 +1,3 @@
+spring.datasource.url=jdbc:postgresql://localhost:5432/student_tracker
+spring.datasource.username=recona97
+spring.datasource.username=620ddcb397

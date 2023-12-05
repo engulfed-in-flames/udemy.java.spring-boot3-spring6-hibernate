@@ -1,0 +1,8 @@
+package com.udemy.advancedhibernate.demo.oneToOne.dao;
+
+import com.udemy.advancedhibernate.demo.oneToOne.entity.InstructorDetail;
+
+public interface InstructorDetailDAO {
+
+	InstructorDetail findById(int id);
+}

@@ -1,0 +1,60 @@
+package com.udemy.advancedhibernate.demo.oneToOne.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.udemy.advancedhibernate.demo.oneToOne.entity.Instructor;
+import com.udemy.advancedhibernate.demo.oneToOne.entity.InstructorDetail;
+
+import jakarta.persistence.EntityManager;
+import jakarta.transaction.Transactional;
+
+@Repository
+public class AppDAOImpl implements AppDAO {
+
+	EntityManager entityManager;
+	
+	public AppDAOImpl(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
+	// Instructor
+	@Override
+	@Transactional
+	public void save(Instructor instructor) {
+		
+		entityManager.persist(instructor);
+	}
+	
+	
+	
+	@Override
+	public Instructor findInstructorById(int id) {
+		
+		return entityManager.find(Instructor.class, id);
+	}
+
+	@Override
+	@Transactional
+	public void deleteInstructorById(int id) {
+		
+		Instructor instructor = findInstructorById(id);
+		
+		entityManager.remove(instructor);
+	}
+	
+	// InstructorDetail
+
+	@Override
+	public InstructorDetail findInstructorDetailById(int id) {
+		
+		return entityManager.find(InstructorDetail.class, id);
+	}
+
+	@Override
+	public void deleteInstructorDetailById(int id) {
+		InstructorDetail instructorDetail = findInstructorDetailById(id);
+		
+		entityManager.remove(instructorDetail);
+		
+	}
+}

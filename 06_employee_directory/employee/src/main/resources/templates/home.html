@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <title>Home</title>
+  </head>
+  <body class="py-4">
+    <div class="container">
+      <h2>Home</h2>
+      <hr />
+      <p>
+        Welcome to the home page!
+        <br /><br />
+        <!-- User info -->
+        User: <span sec:authentication="principal.username" />
+        <br />
+        Role(s): <span sec:authentication="principal.authorities" />
+      </p>
+      <p>
+        <!-- Restricted pages -->
+        <div sec:authorize="hasRole('MANAGER')">
+          <a th:href="@{/managers}">Manager Only Page</a>
+        </div>
+        <br />
+        <div sec:authorize="hasRole('ADMIN')">
+          <a th:href="@{/admins}">Admin Only Page</a>
+        </div>
+       
+      </p>
+      <hr />
+      <!-- Logout Button -->
+      <form th:action="@{/logout}" method="post">
+        <button type="submit">Logout</button>
+      </form>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

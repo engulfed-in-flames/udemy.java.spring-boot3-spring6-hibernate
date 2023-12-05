@@ -1,0 +1,12 @@
+package com.example.aop.aspect;
+
+import org.aspectj.lang.annotation.Aspect;
+
+/*
+ * If a class has only poincut expressions (no advices),
+ * @Aspect is optional
+*/
+@Aspect
+public class AspectExpression {
+
+}

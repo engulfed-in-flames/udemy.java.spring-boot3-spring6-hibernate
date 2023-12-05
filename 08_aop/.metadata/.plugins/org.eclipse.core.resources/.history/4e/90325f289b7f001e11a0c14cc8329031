@@ -1,0 +1,6 @@
+package com.example.aop.dao;
+
+public interface AccountDAO {
+
+	void addAccount();
+}

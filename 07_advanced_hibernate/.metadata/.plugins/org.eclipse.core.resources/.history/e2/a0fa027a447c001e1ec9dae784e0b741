@@ -1,0 +1,5 @@
+package com.udemy.advancedhibernate.demo.oneToMany.entity;
+
+public class Instructor {
+
+}

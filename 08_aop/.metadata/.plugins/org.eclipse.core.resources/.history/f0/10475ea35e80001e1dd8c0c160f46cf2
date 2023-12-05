@@ -1,0 +1,12 @@
+package com.example.aop.dao;
+
+import org.aspectj.lang.annotation.Before;
+
+public class APIAnalyticsDAOImpl {
+
+	@Before("com.example.aop.aspect.AspectExpression.pointcutNotForGetterAndSetter()")
+	public void performAPIAnalytics() {
+		
+		System.out.println("===> Performing API analytics.");
+	}
+}

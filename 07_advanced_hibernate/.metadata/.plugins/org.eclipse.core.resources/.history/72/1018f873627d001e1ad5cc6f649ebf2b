@@ -1,0 +1,20 @@
+package com.udemy.advancedhibernate.demo.oneToOne.dao;
+
+import com.udemy.advancedhibernate.demo.entity.Instructor;
+import com.udemy.advancedhibernate.demo.entity.InstructorDetail;
+
+public interface AppDAO {
+
+	// Instructor
+	void save(Instructor instructor);
+	
+	Instructor findInstructorById(int id);
+	
+	void deleteInstructorById(int id);
+	
+	// InstructorDetail
+	InstructorDetail findInstructorDetailById(int id);
+	
+	void deleteInstructorDetailById(int id);
+	
+}

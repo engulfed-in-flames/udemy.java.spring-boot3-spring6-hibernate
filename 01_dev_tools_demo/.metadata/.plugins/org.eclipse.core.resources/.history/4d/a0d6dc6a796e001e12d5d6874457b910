@@ -1,0 +1,5 @@
+package com.udemy.springboot.demo.config;
+
+public class SportConfig {
+
+}

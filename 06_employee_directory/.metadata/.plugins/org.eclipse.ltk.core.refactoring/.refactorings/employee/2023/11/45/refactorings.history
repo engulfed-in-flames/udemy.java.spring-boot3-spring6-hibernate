@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;employee/src/main/resources/templates/leaders.html&apos; to &apos;managerOnly.html&apos;" description="Rename resource &apos;leaders.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/templates/leaders.html" name="managerOnly.html" stamp="1699171077941" updateReferences="true"/>
+</session>

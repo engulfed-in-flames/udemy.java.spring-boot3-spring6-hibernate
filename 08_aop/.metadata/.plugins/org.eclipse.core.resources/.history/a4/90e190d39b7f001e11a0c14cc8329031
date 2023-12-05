@@ -1,0 +1,10 @@
+package com.example.aop.dao;
+
+import com.example.aop.entity.Account;
+
+public interface AccountDAO {
+
+	void addAccount();
+	
+	void addAccount(Account account);
+}

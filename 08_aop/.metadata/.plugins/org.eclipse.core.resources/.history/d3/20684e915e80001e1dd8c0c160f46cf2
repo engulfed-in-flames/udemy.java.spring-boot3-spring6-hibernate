@@ -1,0 +1,11 @@
+package com.example.aop.dao;
+
+public class LoggingToCloudDAOImpl {
+
+	
+	@Before("com.example.aop.aspect.AspectExpression.pointcutNotForGetterAndSetter()")
+	public void logToCloudAsync() {
+		
+		System.out.println("===> Logging to cloud asynchronously");
+	}
+}

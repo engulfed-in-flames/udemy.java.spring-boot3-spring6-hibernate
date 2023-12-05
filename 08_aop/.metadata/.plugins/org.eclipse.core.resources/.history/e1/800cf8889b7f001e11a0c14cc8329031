@@ -1,0 +1,24 @@
+package com.example.aop.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.example.aop.entity.Account;
+
+// Repository is a sub annotation of @Component.
+@Repository
+public class AccountDAOImpl implements AccountDAO {
+
+	
+	
+	@Override
+	public void addAccount() {
+		
+		System.out.println(getClass().getSimpleName() + " with no arguments : DOING SOME STUFFS");
+	}
+
+	@Override
+	public void addAccount(Account account) {
+		
+		System.out.println(getClass().getSimpleName() + " : DOING SOME STUFFS");
+	}
+}

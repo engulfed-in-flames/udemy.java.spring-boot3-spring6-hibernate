@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .error {
+        color: red;
+      }
+    </style>
+    <title>Customer Form</title>
+  </head>
+  <body>
+    <h1>Customer Registration Form</h1>
+    <form
+      th:action="@{/process-customer-form}"
+      th:object="${customer}"
+      method="post"
+    >
+      <label for="firstName">First Name: </label>
+      <input
+        type="text"
+        th:field="*{firstName}"
+        name="firstName"
+        id="firstName"
+      />
+      <br />
+      
+      <label for="lastName">Last Name (*): </label>
+      <input type="text" th:field="*{lastName}" name="lastName" id="lastName" />
+      <span
+        class="error"
+        th:if="${#fields.hasErrors('lastName')}"
+        th:errors="*{lastName}"
+      />
+      <br />
+      
+      <label for="freePasses">Free passes: </label>
+      <input type="text" th:field="*{freePasses}" name="freePasses" id="freePasses" />
+      <span
+        class="error"
+        th:if="${#fields.hasErrors('freePasses')}"
+        th:errors="*{freePasses}"
+      />
+      <br />
+      
+      <label for="postalCode">Postal Code: </label>
+      <input type="text" th:field="*{postalCode}" name="postalCode" id="postalCode" />
+      <span
+        class="error"
+        th:if="${#fields.hasErrors('postalCode')}"
+        th:errors="*{postalCode}"
+      />
+      <br />
+      
+      <label for="customField">Custom field: </label>
+      <input type="text" th:field="*{customField}" name="customField" id="customField" />
+      <span
+        class="error"
+        th:if="${#fields.hasErrors('customField')}"
+        th:errors="*{customField}"
+      />
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

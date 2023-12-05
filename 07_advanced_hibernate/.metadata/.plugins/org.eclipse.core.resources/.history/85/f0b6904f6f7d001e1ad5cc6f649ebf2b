@@ -1,0 +1,115 @@
+package com.udemy.advancedhibernate.demo;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.udemy.advancedhibernate.demo.dao.AppDAO;
+import com.udemy.advancedhibernate.demo.entity.Course;
+import com.udemy.advancedhibernate.demo.entity.Instructor;
+import com.udemy.advancedhibernate.demo.entity.InstructorDetail;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+	}
+	
+	// Executed after the Spring Beans have been loaded
+	@Bean
+	public CommandLineRunner runner(AppDAO dao) {
+		
+		return runner -> {
+			// createInstructors(dao);
+			// deleteInstructorById(dao, 1);
+			// deleteInstructorById(dao, 2);
+			// printInstructorFromInstructorDetailById(dao, 1);
+			// deleteInstructorDetailById(dao, 2);
+			// createInstructorsWithCourses(dao);
+			
+			findInstructorWithCourses(dao);
+		};
+	}
+
+	// One To One
+	private void createInstructors(AppDAO dao) {
+		Instructor instructor1 = new Instructor("Chad", "Darby", "darby@udemy.com");
+		
+		InstructorDetail instructorDetail1= new InstructorDetail(
+						"http://www.udemy.com/youtube",
+						"Playing games"
+				);
+		
+		Instructor instructor2 = new Instructor("Madhu", "Patel", "madhu@udemy.com");
+		
+		InstructorDetail instructorDetail2 = new InstructorDetail(
+						"http://www.udemy.com/youtube",
+						"Playing the piano"
+				);
+		
+		instructor1.setInstructorDetail(instructorDetail1);
+		dao.save(instructor1);
+		
+		instructor2.setInstructorDetail(instructorDetail2);
+		dao.save(instructor2);
+	}
+	
+	private void deleteInstructorById(AppDAO dao, int id) {
+		
+		dao.deleteInstructorById(id);
+	}
+	
+	private void printInstructorFromInstructorDetailById(AppDAO dao, int id) {
+		
+		InstructorDetail instructorDetail = dao.findInstructorDetailById(id);
+		Instructor instructor = instructorDetail.getInstructor();
+		System.out.println("ID: " + id);
+		System.out.println(instructor);
+	}
+	
+	private void deleteInstructorDetailById(AppDAO dao, int id) {
+		
+		dao.deleteInstructorDetailById(id);
+		
+		// If you want to break bi-directional relationship,
+		// 1. Change the cascade type
+		// 2. Set the associated entity's FK column to NULL
+	}
+	
+	// One To Many
+	private void createInstructorsWithCourses(AppDAO dao) {
+		
+		// In advance, truncate data in all tables.
+		
+		Instructor instructor1 = new Instructor("susan", "Anby", "susan@udemy.com");
+		
+		InstructorDetail instructorDetail1= new InstructorDetail(
+						"http://www.udemy.com/youtube",
+						"Guitar"
+				);
+		instructor1.setInstructorDetail(instructorDetail1);
+		
+		Course course1 = new Course("Air Guitar - The Ultimate Guide");
+		Course course2 = new Course("The Pinball Master Class");
+		
+		instructor1.addCourse(course1);
+		instructor1.addCourse(course2);
+		
+		System.out.println("Saved instructor: " + instructor1);
+		System.out.println("The courses: " + instructor1.getCourses());
+		
+		dao.save(instructor1);
+	}
+	
+	// Fetch Type
+	private void findInstructorWithCourses(AppDAO dao, int id) {
+
+		Instructor instructor = dao.findInstructorById(id);
+		
+		System.out.println("Instructor: " + instructor);
+		System.out.println("The associated courses: " + instructor.getCourses());
+	}
+	
+}

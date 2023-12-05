@@ -1,0 +1,16 @@
+package com.udemy.springboot.demo.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.udemy.springboot.demo.classes.Coach;
+
+public class CoachController {
+
+	// Define a private field for the dependency
+		private Coach coach;
+		
+		@Autowired
+		public CoachController(Coach coach) {
+			this.coach = coach;
+		}
+}

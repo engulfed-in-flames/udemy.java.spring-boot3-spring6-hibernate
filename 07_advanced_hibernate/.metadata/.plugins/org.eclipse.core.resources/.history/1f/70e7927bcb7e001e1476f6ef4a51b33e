@@ -1,0 +1,5 @@
+package com.udemy.advancedhibernate.demo.entity;
+
+public class Student {
+
+}

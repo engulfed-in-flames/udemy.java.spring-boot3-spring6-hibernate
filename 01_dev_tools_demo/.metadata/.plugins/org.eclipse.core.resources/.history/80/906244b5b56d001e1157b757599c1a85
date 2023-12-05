@@ -1,0 +1,23 @@
+package com.udemy.springboot.demo.rest;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import com.udemy.springboot.demo.classes.Coach;
+import com.udemy.springboot.temp.Player;
+
+public class PlayerController {
+
+	private Player player;
+	
+	@Autowired
+	public PlayerController(Player player) {
+		this.player = player;
+	}
+	
+	@GetMapping("/cricketplayer-name")
+	public String getCricketPlayerName() {
+		return player.getName();
+	}
+	
+}

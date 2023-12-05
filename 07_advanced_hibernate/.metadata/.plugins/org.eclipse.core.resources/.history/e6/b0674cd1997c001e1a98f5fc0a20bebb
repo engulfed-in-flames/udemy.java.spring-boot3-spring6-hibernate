@@ -1,0 +1,6 @@
+package com.udemy.advancedhibernate.demo.oneToOne.dao;
+
+public interface InstructorDetailDAO {
+
+	Instrucn
+}

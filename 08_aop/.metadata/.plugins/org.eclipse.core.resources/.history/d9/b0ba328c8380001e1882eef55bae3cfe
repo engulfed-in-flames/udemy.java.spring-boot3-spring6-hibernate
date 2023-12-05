@@ -1,0 +1,33 @@
+package com.example.aop.aspect;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+
+/*
+ * If a class has only poincut expressions (no advices),
+ * @Aspect is optional
+*/
+@Aspect
+public class AspectExpression {
+
+	/*
+	 * How can we reuse a pointcut expression? Solution : Create a pointcut
+	 * declaration
+	 */
+	
+	@Pointcut("execution(* com.example.aop.dao.*.*(..))")
+	public void pointcutForGeneralPurpose() {};
+	
+	@Pointcut("execution(* com.example.aop.dao.*.get*(..))")
+	public void pointcutForGetter() {};
+	
+	@Pointcut("execution(* com.example.aop.dao.*.set*(..))")
+	public void pointcutForSetter() {};
+	
+	@Pointcut("pointcutForGeneralPurpose() && "
+	 		+ "!(pointcutForGetter() || pointcutForSetter())")
+	public void pointcutNotForGetterAndSetter() {};
+	
+	@Pointcut("execution(* com.example.aop.dao.AccountDAOImpl.findAccounts(..))")
+	public void pointcutForMethodFindAccounts() {};
+}

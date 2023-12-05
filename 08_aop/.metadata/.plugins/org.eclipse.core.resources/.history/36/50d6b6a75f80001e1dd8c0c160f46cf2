@@ -1,0 +1,13 @@
+package com.example.aop.dao;
+
+import org.aspectj.lang.annotation.Before;
+
+public class LoggingToCloudDAOImpl implements LoggingToCloudDAO {
+
+	
+	@Before("com.example.aop.aspect.AspectExpression.pointcutNotForGetterAndSetter()")
+	public void logToCloudAsync() {
+		
+		System.out.println("===> Logging to cloud asynchronously");
+	}
+}

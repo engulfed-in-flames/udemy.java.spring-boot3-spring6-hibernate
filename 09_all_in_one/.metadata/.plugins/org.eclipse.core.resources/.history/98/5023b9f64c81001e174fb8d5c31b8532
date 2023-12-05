@@ -1,0 +1,50 @@
+package com.udemy.directory.employee.aspect;
+
+import java.util.List;
+
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.stereotype.Component;
+
+import com.udemy.directory.employee.entity.Employee;
+
+@Aspect
+@Component
+public class EmployeeAspect {
+
+	@Pointcut("execution(* com.udemy.directory.employee.controller.*.*(..)")
+	public void forController() {};
+	
+	@Pointcut("execution(* com.udemy.directory.employee.dao.*.*(..)")
+	public void forDAO() {};
+	
+	@Pointcut("execution(* com.udemy.directory.employee.service.*.*(..)")
+	public void forService() {};
+	
+	@Pointcut("forController() || forDAO() || forService()")
+	public void forAllProcesses() {};
+	
+	@Before("forAllProcesses()")
+	public void before(JoinPoint joinPoint) {
+		
+		MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+		String methodName = methodSignature.toShortString();
+		System.out.println("==== @Before" + methodName + " ====>");
+		
+	};
+	
+	@AfterReturning(
+			pointcut = "forAllProcesses()",
+			returning = "result"
+			)
+	public void afterRunning(JoinPoint joinPoint, List<Employee> result) {
+		
+		MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+		String methodName = methodSignature.toShortString();
+		System.out.println("==== " + methodName + " @AfterRunning ====>");
+	};
+}

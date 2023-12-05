@@ -1,0 +1,8 @@
+package com.udemy.springboot.cruddemo.dao;
+
+import com.udemy.springboot.cruddemo.entities.Student;
+
+public interface StudentDAO {
+	
+	void save(Student student);
+}

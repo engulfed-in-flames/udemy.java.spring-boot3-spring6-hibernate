@@ -1,0 +1,21 @@
+package com.udemy.advancedhibernate.demo.oneToOne.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.udemy.advancedhibernate.demo.oneToOne.entity.InstructorDetail;
+
+import jakarta.persistence.EntityManager;
+
+@Repository
+public class InstructorDetailDAOImpl implements InstructorDetailDAO{
+
+	private EntityManager entityManager;
+
+	@Override
+	public InstructorDetail findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+}

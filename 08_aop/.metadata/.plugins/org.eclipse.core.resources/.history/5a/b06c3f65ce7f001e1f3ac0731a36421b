@@ -1,0 +1,65 @@
+package com.example.aop;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.example.aop.dao.AccountDAO;
+import com.example.aop.dao.MembershipDAO;
+import com.example.aop.entity.Account;
+
+@SpringBootApplication
+public class AopApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AopApplication.class, args);
+	}
+
+	@Bean
+	CommandLineRunner runner(AccountDAO dao) {
+		
+		return runner -> {
+			
+			beforeAdviceDemoV2(dao);
+		};
+	}
+
+	private void beforeAdviceDemo(AccountDAO dao) {
+		
+		Account account = new Account();
+		
+		System.out.println("First time call");
+		dao.addAccount();
+		
+		System.out.println("Second time call");
+		dao.addAccount(account);
+		
+		System.out.println("Third time call");
+		dao.addAccount(account, true);
+	}
+	
+	private void beforeAdviceDemoV2(AccountDAO dao) {
+		
+		Account account = new Account();
+		
+		System.out.println("First time call");
+		dao.addAccount();
+		
+		System.out.println("Second time call");
+		dao.addAccount(account);
+		
+		System.out.println("Third time call");
+		dao.addAccount(account, true);
+		
+		dao.setName("John Doe");
+		dao.setIsVip(true);
+		
+		String name = dao.getName();
+		Boolean isVip = dao.getIsVip();
+		
+		System.out.println("\n---- Account Info ----\n");
+		System.out.println("Name : " + name);
+		System.out.println("VIP : " + isVip);
+	}
+}

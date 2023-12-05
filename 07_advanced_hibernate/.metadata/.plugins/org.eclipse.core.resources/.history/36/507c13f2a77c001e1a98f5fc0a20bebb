@@ -1,0 +1,71 @@
+package com.udemy.advancedhibernate.demo;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import com.udemy.advancedhibernate.demo.oneToOne.dao.AppDAO;
+import com.udemy.advancedhibernate.demo.oneToOne.entity.Instructor;
+import com.udemy.advancedhibernate.demo.oneToOne.entity.InstructorDetail;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(DemoApplication.class, args);
+	}
+	
+	// Executed after the Spring Beans have been loaded
+	@Bean
+	public CommandLineRunner runner(AppDAO DAO) {
+		
+		return runner -> {
+			// createInstructors(IDAO);
+			// deleteInstructorById(IDAO, 1);
+			// deleteInstructorById(IDAO, 2);
+			// printInstructorFromInstructorDetailById(DAO, 1);
+			deleteInstructorDetailById(DAO, 2);
+		};
+	}
+	
+	private void createInstructors(AppDAO DAO) {
+		Instructor instructor1 = new Instructor("Chad", "Darby", "darby@udemy.com");
+		
+		InstructorDetail instructorDetail1= new InstructorDetail(
+						"http://www.udemy.com/youtube",
+						"Playing games"
+				);
+		
+		Instructor instructor2 = new Instructor("Madhu", "Patel", "madhu@udemy.com");
+		
+		InstructorDetail instructorDetail2 = new InstructorDetail(
+						"http://www.udemy.com/youtube",
+						"Playing the piano"
+				);
+		
+		instructor1.setInstructorDetail(instructorDetail1);
+		DAO.save(instructor1);
+		
+		instructor2.setInstructorDetail(instructorDetail2);
+		DAO.save(instructor2);
+	}
+	
+	private void deleteInstructorById(AppDAO DAO, int id) {
+		
+		DAO.deleteInstructorById(id);
+	}
+	
+	private void printInstructorFromInstructorDetailById(AppDAO DAO, int id) {
+		
+		InstructorDetail instructorDetail = DAO.findInstructorDetailById(id);
+		Instructor instructor = instructorDetail.getInstructor();
+		System.out.println("ID: " + id);
+		System.out.println(instructor);
+	}
+	
+	private void deleteInstructorDetailById(AppDAO DAO, int id) {
+		
+		DAO.deleteInstructorDetailById(id);
+	}
+}

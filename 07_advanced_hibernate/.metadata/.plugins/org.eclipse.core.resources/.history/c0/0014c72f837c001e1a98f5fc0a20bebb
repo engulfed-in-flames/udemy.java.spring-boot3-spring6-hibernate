@@ -1,0 +1,22 @@
+package com.udemy.advancedhibernate.demo.oneToOne.dao;
+
+import com.udemy.advancedhibernate.demo.oneToOne.entity.Instructor;
+
+import jakarta.persistence.EntityManager;
+
+public class InstructorDAOImpl implements InstructorDAO {
+
+	EntityManager entityManager;
+	
+	public InstructorDAOImpl(EntityManager entityManager) {
+		this.entityManager = entityManager;
+	}
+
+	@Override
+	public void save(Instructor instructor) {
+		
+		entityManager.persist(instructor);
+	}
+
+	
+}

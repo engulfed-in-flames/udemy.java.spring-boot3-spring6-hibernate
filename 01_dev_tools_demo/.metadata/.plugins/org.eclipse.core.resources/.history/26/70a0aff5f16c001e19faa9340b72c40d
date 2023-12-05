@@ -1,0 +1,25 @@
+# ACCTUATOR CONFIG
+management.info.java.enabled=true
+management.info.env.enabled=true
+
+# To allow all actuator endpoints, use wildcard "*"
+management.endpoints.web.exposure.include=health, info
+
+# An individual endpoint can be enabled/disabled
+management.endpoints.beans.enabled=false
+management.endpoints.info.enabled=false
+
+info.app.name=My Sexy App
+info.app.description=The sexiest application in the world
+info.app.version=1.0.0
+
+# Define custom properties
+employer.name=Tim Button
+company.name=Apple
+
+# Change spring boot embedded server port
+server.port=7070
+
+# Set the context path of the application
+# All requests should be prefixed with /demo
+# server.servlet.context-path=/demo

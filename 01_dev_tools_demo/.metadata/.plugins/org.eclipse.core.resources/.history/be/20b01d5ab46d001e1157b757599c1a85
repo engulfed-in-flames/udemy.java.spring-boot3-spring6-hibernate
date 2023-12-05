@@ -1,0 +1,6 @@
+package com.udemy.springboot.temp;
+
+public class SoccerCoach {
+
+	String name = "George";
+}
