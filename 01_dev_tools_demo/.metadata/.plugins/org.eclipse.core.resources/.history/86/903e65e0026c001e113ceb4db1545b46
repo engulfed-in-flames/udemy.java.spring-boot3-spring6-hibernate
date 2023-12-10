@@ -1,8 +1,0 @@
-# ACCTUATOR CONFIG
-management.endpoints.web.exposure.include=health,info
-managements.info.java.enabled=true
-managements.info.env.enabled=true
-
-info.app.name=My Sexy App
-info.app.description=The sexiest application in the world
-info.app.version=1.0.0

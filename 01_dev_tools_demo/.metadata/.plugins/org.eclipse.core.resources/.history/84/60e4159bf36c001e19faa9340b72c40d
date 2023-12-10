@@ -1,5 +1,0 @@
-package com.udemy.springboot.demo.rest;
-
-public class CoachController {
-
-}

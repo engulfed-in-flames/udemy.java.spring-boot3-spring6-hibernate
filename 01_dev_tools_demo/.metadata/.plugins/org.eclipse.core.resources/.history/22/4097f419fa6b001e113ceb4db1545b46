@@ -1,3 +1,0 @@
-# ACCTUATOR CONFIG
-management.endpoints.web.exposure.include = health,info
-managements.info.env.enabled=true
