@@ -1,0 +1,48 @@
+# ---- ---- SPRINGBOOT CONFIG ---- ----
+# ---- ---- SPRINGBOOT CONFIG ---- ----
+# ---- ---- SPRINGBOOT CONFIG ---- ----
+spring.main.banner-mode=off 
+
+# server.port=7070
+
+# server.servlet.context-path=/demo
+
+# ---- ---- LOGGING ---- ----
+# ---- ---- LOGGING ---- ----
+# ---- ---- LOGGING ---- ----
+logging.level.root=warn
+
+# -- Log JDBC SQL statemetns.
+logging.level.org.springframework.jdbc.core=trace
+
+# -- Log SQL statements
+logging.level.org.hibernate.SQL=debug
+
+# -- Log values for SQL statments
+logging.level.org.hibernate.orm.jdbc.bind=trace
+
+# ---- ---- ACCTUATOR CONFIG ---- ----
+# ---- ---- ACCTUATOR CONFIG ---- ----
+# ---- ---- ACCTUATOR CONFIG ---- ----
+management.info.java.enabled=true
+management.info.env.enabled=true
+
+# -- To allow all actuator endpoints, use wildcard "*"
+management.endpoints.web.exposure.include=health, info
+
+# -- An individual endpoint can be enabled/disabled
+management.endpoints.beans.enabled=false
+management.endpoints.info.enabled=false
+
+
+
+
+
+info.app.name=My Sexy Application
+info.app.description=The sexiest application in the world
+info.app.version=1.0.0
+
+# ---- ---- CUSTOM PROPERTIES ---- ----
+# ---- ---- CUSTOM PROPERTIES ---- ----
+# ---- ---- CUSTOM PROPERTIES ---- ----
+player.name=Louis Vuitton

@@ -1,0 +1,5 @@
+package com.udemy.crudwithdb.coach.config;
+
+public class SportConfig {
+
+}

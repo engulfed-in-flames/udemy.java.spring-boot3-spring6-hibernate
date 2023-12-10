@@ -1,0 +1,4 @@
+package udemy.crudwithdb.sport.rest;
+
+@Value("${player.name}")
+	private String playerName;

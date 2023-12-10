@@ -1,0 +1,18 @@
+package udemy.crudwithdb.sport.entity.player;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class CricketPlayer implements Player {
+
+	private String name;
+
+	public CricketPlayer(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String getName() {
+		return name;
+	}
+}

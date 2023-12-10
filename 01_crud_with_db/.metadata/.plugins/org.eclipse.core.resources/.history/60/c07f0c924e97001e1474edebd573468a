@@ -1,0 +1,26 @@
+package udemy.crudwithdb.sport.entity.player;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class CricketPlayer implements Player {
+
+	@Value("${player.name}")
+	private String DEFAULT_PLAYER_NAME;
+	
+	private String name;
+	
+	public CricketPlayer() {
+		this(DEFAULT_PLAYER_NAME);
+	}
+	
+	public CricketPlayer(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String getName() {
+		return name;
+	}
+}

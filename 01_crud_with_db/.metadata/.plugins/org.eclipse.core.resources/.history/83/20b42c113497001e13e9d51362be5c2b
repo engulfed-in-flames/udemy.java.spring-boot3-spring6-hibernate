@@ -1,0 +1,6 @@
+package com.udemy.crudwithdb.sport.coach;
+
+public interface Coach {
+
+	String getDailyWorkout();
+}

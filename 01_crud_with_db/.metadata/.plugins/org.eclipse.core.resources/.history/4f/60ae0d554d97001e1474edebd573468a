@@ -1,0 +1,13 @@
+package udemy.crudwithdb;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CrudwithdbApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CrudwithdbApplication.class, args);
+	}
+
+}

@@ -1,0 +1,17 @@
+package com.udemy.crudwithdb.sport.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import com.udemy.crudwithdb.sport.coach.BaseballCoach;
+import com.udemy.crudwithdb.sport.coach.Coach;
+
+@Configuration
+public class SportConfig {
+
+	@Bean("inning")
+	public Coach swimCoach() {
+		
+		return new BaseballCoach();
+	}
+}

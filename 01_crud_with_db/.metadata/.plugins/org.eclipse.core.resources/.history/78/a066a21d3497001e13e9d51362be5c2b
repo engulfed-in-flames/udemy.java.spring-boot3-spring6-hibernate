@@ -1,0 +1,6 @@
+package com.udemy.crudwithdb.sport.player;
+
+public interface Player {
+
+	String getName();
+}
