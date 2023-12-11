@@ -1,0 +1,9 @@
+Challenges
+    - Writing efficient queries to retrieve information
+    - Designing the schema, or structrue of the db
+    - Understanding when to use advanced features
+    - Managing the db in a production environment
+
+Table 
+    - Collection of records(data, row)
+    - Each record has at least one property(column), and if contains pk, it has at least two column.

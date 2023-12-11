@@ -1,0 +1,51 @@
+package udemy.crudwithdb;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+
+import udemy.crudwithdb.student.dao.StudentDAO;
+
+// @SpringBootApplication = @Configuration + @EnableAutoConfiguration + @ComponentScan
+// You can scan packages located in parent folders by using 'scanBasePackages' property
+@SpringBootApplication
+public class CrudwithdbApplication {
+
+	private static ConfigurableApplicationContext context;
+
+	public static void main(String[] args) {
+		context = SpringApplication.run(CrudwithdbApplication.class, args);
+		checkBeansPresence("cricketCoach", "cricketPlayer");
+	}
+	
+	@Bean
+	public CommandLineRunner runner(StudentDAO dao) {
+		
+		return runner -> {
+			// createStudent(studentDAO);
+			
+			// createMultipleSutdent(studentDAO);
+			
+			// printStudent(studentDAO, 1);
+			
+			// queryForStudents(studentDAO);
+			
+			// queryForStudentsByLastName(studentDAO, "laurent");
+			
+			// updateStudent(studentDAO, 1);
+			
+			// deleteStudent(studentDAO, 1);
+			
+			// deleteAllStudents(studentDAO);
+		};
+	}
+
+	// Check if the bean exists
+	private static void checkBeansPresence(String... beans) {
+		for (String beanName : beans) {
+			System.out.println("Is " + beanName + " in ApplicationContext: " + context.containsBean(beanName));
+		}
+	}
+}

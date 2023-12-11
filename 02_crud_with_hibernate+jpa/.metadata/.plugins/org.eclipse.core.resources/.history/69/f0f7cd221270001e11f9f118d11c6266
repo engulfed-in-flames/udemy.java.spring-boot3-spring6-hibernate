@@ -1,9 +1,0 @@
-spring.datasource.url=jdbc:postgresql://localhost:5432/psql_user
-spring.datasource.driver=org.postgresql.Driver
-spring.datasource.username=psql_user
-spring.datasource.password=1q2w3e4r
-
-# Hibernate properties
-spring.jpa.show-sql = false
-spring.jpa.hibernate.ddl-auto=create
-spring.jpa.database = org.hibernate.dialect.PostgreSQLDialect

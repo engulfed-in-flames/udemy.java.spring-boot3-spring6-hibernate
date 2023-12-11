@@ -2,4 +2,9 @@
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="org.apache.catalina.core.ApplicationContext"/>
     <fullyQualifiedTypeName name="org.springframework.context.ConfigurableApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.boot.CommandLineRunner"/>
+    <fullyQualifiedTypeName name="udemy.crudwithdb.student.dao.StudentDAO"/>
+    <fullyQualifiedTypeName name="org.springframework.context.annotation.Bean"/>
+    <fullyQualifiedTypeName name="udemy.crudwithdb.student.entity.Student"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

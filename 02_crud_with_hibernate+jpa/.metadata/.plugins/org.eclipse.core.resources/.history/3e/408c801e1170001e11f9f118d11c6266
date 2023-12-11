@@ -1,5 +1,0 @@
-spring.datasource.url=jdbc:postgresql://localhost:5432/student_tracker
-spring.datasource.driver=org.postgresql.Driver
-spring.datasource.username=recona97
-spring.datasource.password=620ddcb397
-spring.jpa.hibernate.ddl-auto=create

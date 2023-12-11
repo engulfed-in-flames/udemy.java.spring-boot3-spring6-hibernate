@@ -1,5 +1,0 @@
-package com.udemy.springboot.cruddemo.entities;
-
-public class Student {
-
-}
